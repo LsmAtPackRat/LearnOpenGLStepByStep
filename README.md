@@ -1,0 +1,2 @@
+# LearnOpenGLStepByStep
+本仓库存放我学习OpenGL过程中所写的代码示例。
