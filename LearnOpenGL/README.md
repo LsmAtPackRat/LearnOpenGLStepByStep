@@ -1,6 +1,6 @@
 # 前言 & 第一节
 
-
+本教程的网址是[LearnOpenGL CN](https://learnopengl-cn.github.io/)。
 
 
 
@@ -181,3 +181,4 @@ return 0;
 }
 ```
 
+以上。
