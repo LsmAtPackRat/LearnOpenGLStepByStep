@@ -159,12 +159,25 @@ g++使用-I选项（**-Iinclude**）来将include文件夹中的头文件包含�
 
 ## 你好，窗口
 
+创建一个`.cpp`文件，并且在文件的最前面：
 
+```c++
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+```
 
+注意上面两行的顺序不能够颠倒。GLAD的头文件包含了正确的OpenGL头文件（例如`GL/gl.h`），所以需要在其它依赖于OpenGL的头文件之前包含GLAD（我觉得这个是header guard的写法问题？先不管这个）。
 
-
-
-
-
-
+创建main函数，其中实例化GLFW窗口：
+```c++
+int main()
+{
+glfwInit();
+glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+return 0;
+}
+```
 
