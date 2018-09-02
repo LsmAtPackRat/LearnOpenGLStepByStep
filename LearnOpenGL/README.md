@@ -1,3 +1,9 @@
+# 前言 & 第一节
+
+
+
+
+
 # 第二节
 
 ## OpenGL
@@ -98,6 +104,60 @@ glSetObjectOption(GL_WINDOW_TARGET, GL_OPTION_WINDOW_HEIGHT, 600);
 // 将上下文对象设回默认
 glBindObject(GL_WINDOW_TARGET, 0);
 ```
+
+上述例子中，
+
+- 先创建了一个对象，用一个id保存它的引用；
+- 然后将对象绑定至上下文的目标位置（例子中窗口对象目标的位置被定义成GL_WINDOW_TARGET）；
+- 接下来设置窗口的选项；
+- 最后将目标位置的对象id设回0，**解绑**这个对象；
+- 设置的选项被保存在objectId所引用的对象中，一旦我们**重新绑定**这个对象到GL_WINDOW_TARGET位置，这些选项就会**重新生效**。
+
+上述是一个OpenGL的使用的一个大致描述。
+
+在程序中**使用对象的好处**：我们可以定义多个对象，并设置它们的选项，每个对象都可以是**不同的设置**。在我们执行一个使用OpenGL状态的操作的时候，只需要**绑定**含有需要的设置的对象即可。比如说我们有一些作为3D模型数据（一栋房子或一个人物）的容器对象，在我们想绘制其中任何一个模型的时候，只需绑定一个包含对应模型数据的对象就可以了（当然，我们需要先创建并设置对象的选项）。拥有数个这样的对象允许我们指定多个模型，在想画其中任何一个的时候，直接将对应的对象绑定上去，便**不需要再重复设置选项**了。
+
+
+
+## 附加资源
+
+- [opengl.org](https://www.opengl.org/)：OpenGL官方网站。
+- [OpenGL registry](https://www.opengl.org/registry/)：包含OpenGL各版本的规范和扩展。
+
+
+
+# 第三节
+
+## 创建窗口
+
+本教程使用GLAD库取代了之前老教程中的GLEW库。
+
+在画出图形之前，首先要做的就是创建一个OpenGL上下文(Context)和一个用于显示的窗口。然而，这些操作在每个系统上都是不一样的，这些操作被从OpenGL中抽象(Abstract)出去。这意味着我们不得不自己处理**创建窗口**，**定义OpenGL上下文**以及**处理用户输入**。
+
+有一些库已经提供了我们所需的功能，这些库提供给我们一个窗口和上下文用来渲染，从而节省了我们写操作系统相关的代码的时间。最流行的几个库有GLUT，SDL，SFML和GLFW。在教程里我们将使用**GLFW**。
+
+
+
+## GLFW & GLAD配置
+
+g++使用-I选项（**-Iinclude**）来将include文件夹中的头文件包含进来。所以include中放上要使用的头文件。
+
+
+
+## 附加资源
+
+- [GLFW: Window Guide](http://www.glfw.org/docs/latest/window_guide.html)：GLFW官方的配置GLFW窗口的指南。
+- [Building applications](http://www.opengl-tutorial.org/miscellaneous/building-your-own-c-application/)：提供了很多编译或链接相关的信息和一大列错误及对应的解决方案。
+- [GLFW with Code::Blocks](http://wiki.codeblocks.org/index.php?title=Using_GLFW_with_Code::Blocks)：使用Code::Blocks IDE编译GLFW。
+- [Running CMake](http://www.cmake.org/runningcmake/)：简要的介绍如何在Windows和Linux上使用CMake。
+- [Writing a build system under Linux](http://learnopengl.com/demo/autotools_tutorial.txt)：Wouter Verholst写的一个autotools的教程，讲的是如何在Linux上编写构建系统，尤其是针对这些教程。
+- [Polytonic/Glitter](https://github.com/Polytonic/Glitter)：一个简单的样板项目，它已经提前配置了所有相关的库；如果你想要很方便地搞到一个LearnOpenGL教程的范例工程，这也是很不错的。
+
+
+
+# 第四节
+
+## 你好，窗口
 
 
 
