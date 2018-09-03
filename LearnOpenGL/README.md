@@ -208,7 +208,7 @@ int main()
 
 下图是图形渲染pipeline的每个阶段的抽象表示（要注意**蓝色部分**代表的是我们可以注入**自定义的着色器**的部分）：
 
-![img](D:\Github_Projects\LearnOpenGLStepByStep\LearnOpenGL\images\pipeline.png)
+![](images/pipeline.png)
 
 
 
